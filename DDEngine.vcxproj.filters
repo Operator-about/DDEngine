@@ -18,19 +18,5 @@
     <ClCompile Include="DDEngine.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="libary\include\src\glad.c">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="libary\include\KHR\khrplatform.h">
-      <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
-    <ClInclude Include="libary\include\GLFW\glfw3.h">
-      <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
-    <ClInclude Include="libary\include\glad\glad.h">
-      <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

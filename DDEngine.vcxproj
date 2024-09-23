@@ -134,12 +134,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DDEngine.cpp" />
-    <ClCompile Include="libary\include\src\glad.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="libary\include\glad\glad.h" />
-    <ClInclude Include="libary\include\GLFW\glfw3.h" />
-    <ClInclude Include="libary\include\KHR\khrplatform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
