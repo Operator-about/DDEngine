@@ -134,6 +134,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DDEngine.cpp" />
+    <ClCompile Include="EBOSystem.cpp" />
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="MainShaderSystemDDEngine.cpp" />
+    <ClCompile Include="VAOSystem.cpp" />
+    <ClCompile Include="VBOSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FragShader.frag" />
+    <None Include="VertShader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EBO.h" />
+    <ClInclude Include="ShaderSystemDDEngine.h" />
+    <ClInclude Include="VAO.h" />
+    <ClInclude Include="VBO.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
