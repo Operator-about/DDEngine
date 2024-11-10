@@ -16,6 +16,9 @@
     <Filter Include="Файлы ресурсов\Shader">
       <UniqueIdentifier>{da338096-bf37-494e-9563-3cddc6d34850}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы ресурсов\CppClass">
+      <UniqueIdentifier>{cb8cb470-7ddb-4dbb-b3f6-07153f1c5a2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DDEngine.cpp">
@@ -24,17 +27,17 @@
     <ClCompile Include="glad.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="MainShaderSystemDDEngine.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="VBOSystem.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
     <ClCompile Include="EBOSystem.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\CppClass</Filter>
+    </ClCompile>
+    <ClCompile Include="MainShaderSystemDDEngine.cpp">
+      <Filter>Файлы ресурсов\CppClass</Filter>
     </ClCompile>
     <ClCompile Include="VAOSystem.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы ресурсов\CppClass</Filter>
+    </ClCompile>
+    <ClCompile Include="VBOSystem.cpp">
+      <Filter>Файлы ресурсов\CppClass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

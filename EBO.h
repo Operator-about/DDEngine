@@ -7,11 +7,10 @@ class EBO
 {
 public:
 	GLuint _ID;
-	EBO(GLfloat* _Vert, GLsizeiptr _Size);
+	EBO(GLuint* _Index, GLsizeiptr _Size);
 
 	void Bind();
 	void UnBind();
-	void Offline();
 	void Offline();
 };
 

@@ -1,20 +1,26 @@
 #include"ShaderSystemDDEngine.h"
+#include<iostream>
 using namespace std;
 
 string GetFile(const char* _FileName) 
 {
 	ifstream in(_FileName, ios::binary);
-	if (in) 
+	
+	if (in)
 	{
 		string _Contents;
-		in.seekg(0,ios::end);
+		in.seekg(0, ios::end);
 		_Contents.resize(in.tellg());
-		in.seekg(0,ios::beg);
+		in.seekg(0, ios::beg);
 		in.read(&_Contents[0], _Contents.size());
 		in.close();
 		return(_Contents);
 	}
-	throw(errno);
+	throw new exception(errno);
+	
+	
+	
+	
 }
 
 MainShaderSystem::MainShaderSystem(const char* _VertFile, const char* _FragFile) 

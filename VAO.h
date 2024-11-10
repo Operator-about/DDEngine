@@ -10,7 +10,7 @@ public:
 	GLuint _ID;
 	VAO();
 
-	void LinkVBOSystem(VBO _VBO, GLuint _Layout);
+	void LinkAttrib(VBO _VBO, GLuint _Layout, GLuint _NumComponent, GLenum _Type, GLsizeiptr _Stride, void* _Offest);
 	void Bind();
 	void UnBind();
 	void Offline();

@@ -12,7 +12,6 @@ public:
 	void Bind();
 	void UnBind();
 	void Offline();
-	void Offline();
 };
 
 
