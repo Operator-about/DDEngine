@@ -1,11 +1,13 @@
 #include"ShaderSystemDDEngine.h"
-#include<iostream>
+
 using namespace std;
 
 string GetFile(const char* _FileName) 
 {
 	ifstream in(_FileName, ios::binary);
 	
+	
+
 	if (in)
 	{
 		string _Contents;
@@ -16,7 +18,7 @@ string GetFile(const char* _FileName)
 		in.close();
 		return(_Contents);
 	}
-	throw new exception(errno);
+	throw(errno);
 	
 	
 	

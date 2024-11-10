@@ -7,21 +7,12 @@
 #include"VAO.h"
 #include"VBO.h"
 #include <thread>
-#include <chrono>
+
 
 
 using namespace std;
 
-class TaskProgramm
-{
-public:
-	void DelayTaskProgramm(int _Seconds) 
-	{
-		this_thread::sleep_for(std::chrono::nanoseconds(_Seconds));
-	}
-	
 
-};
 
 
 
@@ -48,8 +39,6 @@ GLuint _Index[] =
 
 
 
-const char* _VertFile = "VertShader.vert";
-const char* _FragFile = "FargShader.vert";
 
 
 class DDShell 
@@ -71,6 +60,7 @@ public:
 	}
 	tuple<VBO, VAO, EBO> LinkVBOVAOEBOAttribute(VBO _VBOLocal, VAO _VAOLocal, EBO _EBOLocal,GLfloat _Vert[], GLuint _Index[])
 	{
+		gladLoadGL();
 		VBO _VBO(_Vert, sizeof(_Vert));
 		EBO _EBO(_Index, sizeof(_Index));
 		VAO _VAO;
@@ -94,6 +84,7 @@ public:
 	}
 	tuple<VBO,VAO,EBO,MainShaderSystem> ActivAndBindSystem(VBO _VBO, VAO _VAO, EBO _EBO, MainShaderSystem _Shader, bool _VBOStatus, bool _VAOStatus, bool _EBOStatus, bool _ShaderStatus)
 	{
+		gladLoadGL();
 		if (_VBOStatus == true)
 		{
 			_VBO.Bind();
@@ -119,6 +110,7 @@ public:
 	}
 	void ShutdownSystemComponent(VBO _VBO, VAO _VAO, EBO _EBO, MainShaderSystem _Shader, bool _VBOStatus, bool _VAOStatus, bool _EBOStatus, bool _ShaderStatus)
 	{
+		gladLoadGL();
 		if (_VBOStatus == true)
 		{
 			_VBO.Offline();
@@ -143,6 +135,7 @@ public:
 
 	void ClearWindow(float R, float G, float B, float A)
 	{
+		gladLoadGL();
 		glClearColor(R, G, B, A);
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
@@ -185,7 +178,7 @@ int main()
 	glfwMakeContextCurrent(_Window);
 	gladLoadGL();
 	glViewport(0,0,800,800);
-	MainShaderSystem _Shader(_VertFile, _FragFile);
+	MainShaderSystem _Shader("VertShader.vert", "FragShader.frag");
 	DDShell _ComponentEngine;
 
 	VAO _VAO;
@@ -194,7 +187,6 @@ int main()
 	VBO _VBO(_Vert, sizeof(_Vert));
 	EBO _EBO(_Index,sizeof(_Index));
 	
-	//_ComponentEngine.LoadShaderSystem("VertShader.vert", "FragShader.frag");
 	_ComponentEngine.LinkVBOVAOEBOAttribute(_VBO,_VAO,_EBO,_Vert,_Index);
 	_ComponentEngine.ClearWindow(0.07f, 0.13f, 0.17f, 1.0f);
 	_ComponentEngine.UpdateFrame(_Window);
@@ -204,7 +196,7 @@ int main()
 	while (!glfwWindowShouldClose(_Window))
 	{
 		_ComponentEngine.ClearWindow(0.07f, 0.13f, 0.17f, 1.0f);
-		_ComponentEngine.ActivAndBindSystem(_VBO, _VAO, _EBO, _Shader, false,true,false,true);
+		_ComponentEngine.ActivAndBindSystem(_VBO, _VAO, _EBO, _Shader, true,true,true,true);
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 		_ComponentEngine.UpdateFrame(_Window);
 		
