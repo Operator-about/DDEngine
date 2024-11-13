@@ -145,6 +145,7 @@
     <None Include="VertShader.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DDShell.h" />
     <ClInclude Include="EBO.h" />
     <ClInclude Include="ShaderSystemDDEngine.h" />
     <ClInclude Include="VAO.h" />
