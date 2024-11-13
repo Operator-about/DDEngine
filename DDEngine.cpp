@@ -20,13 +20,13 @@ using namespace std;
 
 GLfloat _Vert[] =
 {
-	//Координаты										Цвет
-	-0.5f,-0.5f * float(sqrt(3)) / 3		,0.0f,			0.8f,0.3f,0.02f,
-	0.5f,-0.5f * float(sqrt(3)) / 3,		 0.0f,			0.8f,0.3f,0.02f,
-	0.0f,0.5f * float(sqrt(3)) * 2 / 3,   0.0f,			1.0f,0.6f,0.32f,
-	-0.5f / 2,0.5f * float(sqrt(3)) / 6,	 0.0f,			0.9f,0.45f,0.17f,
-	0.5f / 2,0.5f * float(sqrt(3)) / 6,	 0.0f,			0.9f,0.45f,0.17f,
-	0.0f,0.5f * float(sqrt(3)) / 3,		 0.0f,			0.8f,0.3f,0.02f
+	//Координаты										
+	-0.5f,-0.5f * float(sqrt(3)) / 3		,0.0f,			
+	0.5f,-0.5f * float(sqrt(3)) / 3,		 0.0f,			
+	0.0f,0.5f * float(sqrt(3)) * 2 / 3,      0.0f,			
+	-0.5f / 2,0.5f * float(sqrt(3)) / 6,	 0.0f,			
+	0.5f / 2,0.5f * float(sqrt(3)) / 6,	     0.0f,			
+	0.0f,0.5f * float(sqrt(3)) / 3,		     0.0f,			
 };
 
 GLuint _Index[] =
@@ -47,7 +47,7 @@ class DDShell
 public:
 
 	
-	
+	string _DebugInfoText;
 
 	void UpdateFrame(GLFWwindow* _Window)
 	{
@@ -58,54 +58,78 @@ public:
 		glfwDestroyWindow(_Window);
 		glfwTerminate();
 	}
-	tuple<VBO, VAO, EBO> LinkVBOVAOEBOAttribute(VBO _VBOLocal, VAO _VAOLocal, EBO _EBOLocal,GLfloat _Vert[], GLuint _Index[])
+	void LinkVBOVAOEBOAttribute(VBO _VBOLocal, VAO _VAOLocal, EBO _EBOLocal,GLfloat _Vert[], GLuint _Index[])
 	{
 		gladLoadGL();
-		VBO _VBO(_Vert, sizeof(_Vert));
-		EBO _EBO(_Index, sizeof(_Index));
-		VAO _VAO;
 
-		_VBOLocal = _VBO;
-		_EBOLocal = _EBO;
-		_VAOLocal = _VAO;
-
-		_VAOLocal.Bind();
-		
-
-
-		_VAOLocal.LinkAttrib(_VBOLocal, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
-		_VAOLocal.LinkAttrib(_VBOLocal, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * (sizeof(float))));
+		_VAOLocal.LinkAttrib(_VBOLocal, 0);
 		_VBOLocal.UnBind();
+		_DebugInfoText = "Status VBO: UnBind!";
+		DebugTextOutput();
 		_VAOLocal.UnBind();
+		_DebugInfoText = "Status VAO: UnBind!";
+		DebugTextOutput();
 		_EBOLocal.UnBind();
-		cout << "Link status: done and good" << endl;
-		tuple<VBO, VAO, EBO> _All = {_VBOLocal,_VAOLocal,_EBOLocal};
-		return _All;
+		_DebugInfoText = "Status EBO: UnBind!";
+		DebugTextOutput();
+
+		_DebugInfoText = "Status Link: online!";
+		DebugTextOutput();
+
+
+		_DebugInfoText = "Return variable... pls wait";
+		DebugTextOutput();
+		
 	}
-	tuple<VBO,VAO,EBO,MainShaderSystem> ActivAndBindSystem(VBO _VBO, VAO _VAO, EBO _EBO, MainShaderSystem _Shader, bool _VBOStatus, bool _VAOStatus, bool _EBOStatus, bool _ShaderStatus)
+	tuple<VBO,VAO,EBO,MainShaderSystem> ActivAndBindSystem(VBO _VBO, VAO _VAO, EBO _EBO, MainShaderSystem _Shader, bool _VBOStatus, bool _VAOStatus, bool _EBOStatus, bool _ShaderStatus, bool _OutMode)
 	{
 		gladLoadGL();
 		if (_VBOStatus == true)
 		{
 			_VBO.Bind();
-			cout << "Bind: VBO status: done and good" << endl;
+			_DebugInfoText = "Bind: VBO status: done and good";
+			if (_OutMode == true)
+			{
+				DebugTextOutput();
+			}
 		}
 		if (_VAOStatus == true)
 		{
 			_VAO.Bind();
-			cout << "Bind: VAO status: done and good" << endl;
+			_DebugInfoText = "Bind: VAO status: done and good";
+			if (_OutMode == true)
+			{
+				DebugTextOutput();
+			}
 		}
 		if (_EBOStatus == true)
 		{
 			_EBO.Bind();
-			cout << "Bind: EBO status: done and good" << endl;
+			_DebugInfoText = "Bind: EBO status: done and good";
+			if (_OutMode == true)
+			{
+				DebugTextOutput();
+			}
 		}
 		if (_ShaderStatus == true)
 		{
 			_Shader.Online();
-			cout << "Bind: Shader status: done and good" << endl;
+			_DebugInfoText = "Bind: Shader status: done and good";
+			if (_OutMode == true)
+			{
+				DebugTextOutput();
+			}
 		}
+		_DebugInfoText = "Status Bind: online!";
+
 		tuple<VBO, VAO, EBO, MainShaderSystem> _All = { _VBO,_VAO,_EBO,_Shader };
+		if (_OutMode == true)
+		{
+			_DebugInfoText = "Return variable... pls wait";
+			DebugTextOutput();
+		}
+		
+		
 		return _All;
 	}
 	void ShutdownSystemComponent(VBO _VBO, VAO _VAO, EBO _EBO, MainShaderSystem _Shader, bool _VBOStatus, bool _VAOStatus, bool _EBOStatus, bool _ShaderStatus)
@@ -114,23 +138,30 @@ public:
 		if (_VBOStatus == true)
 		{
 			_VBO.Offline();
-			cout << "Deactivet: VBO status: done and good" << endl;
+			_DebugInfoText = "Deactivet: VBO status: done and good";
+			DebugTextOutput();
 		}
 		if (_VAOStatus == true)
 		{
 			_VAO.Offline();
-			cout << "Deactivet: VAO status: done and good" << endl;
+			_DebugInfoText = "Deactivet: VAO status: done and good";
+			DebugTextOutput();
 		}
 		if (_EBOStatus == true)
 		{
 			_EBO.Offline();
-			cout << "Deactivet: EBO status: done and good" << endl;
+			_DebugInfoText = "Deactivet: EBO status: done and good";
+			DebugTextOutput();
+			
 		}
 		if (_ShaderStatus == true)
 		{
 			_Shader.Offline();
-			cout << "Deactivet: Shader status: done and good" << endl;
+			_DebugInfoText = "Deactivet: Shader status: done and good";
+			DebugTextOutput();
+			
 		}
+		_DebugInfoText = "Status Bind: offline!";
 	}
 
 	void ClearWindow(float R, float G, float B, float A)
@@ -138,6 +169,10 @@ public:
 		gladLoadGL();
 		glClearColor(R, G, B, A);
 		glClear(GL_COLOR_BUFFER_BIT);
+	}
+	void DebugTextOutput() 
+	{
+		cout << _DebugInfoText << endl;
 	}
 };
 
@@ -176,6 +211,7 @@ int main()
 	}
 	//Запуск окна через: glfwMakeContextCurrent 
 	glfwMakeContextCurrent(_Window);
+
 	gladLoadGL();
 	glViewport(0,0,800,800);
 	MainShaderSystem _Shader("VertShader.vert", "FragShader.frag");
@@ -183,7 +219,6 @@ int main()
 
 	VAO _VAO;
 	_VAO.Bind();
-
 	VBO _VBO(_Vert, sizeof(_Vert));
 	EBO _EBO(_Index,sizeof(_Index));
 	
@@ -196,7 +231,7 @@ int main()
 	while (!glfwWindowShouldClose(_Window))
 	{
 		_ComponentEngine.ClearWindow(0.07f, 0.13f, 0.17f, 1.0f);
-		_ComponentEngine.ActivAndBindSystem(_VBO, _VAO, _EBO, _Shader, true,true,true,true);
+		_ComponentEngine.ActivAndBindSystem(_VBO, _VAO, _EBO, _Shader, false,true,false,true,false);
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 		_ComponentEngine.UpdateFrame(_Window);
 		
