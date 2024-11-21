@@ -17,7 +17,7 @@
 using namespace std;
 using namespace glm;
 
-class DDShell
+class IFEShell
 {
 
 public:

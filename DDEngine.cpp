@@ -3,7 +3,7 @@
 #include<glfw3.h>
 #include<khrplatform.h>
 #include"MeshDD.h"
-#include"DDShell.h"
+#include"IFEShell.h"
 
 using namespace std;
 using namespace glm;
@@ -74,7 +74,7 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	cout << "Startup DDEngine" << endl;
+	cout << "Startup ImpulseForceEngine" << endl;
 
 
 
@@ -82,7 +82,7 @@ int main()
 
 	//Создание окна
 	//GLFWindow - класс окна openGL, функция: glfwCreateWindow - создаёт окно
-	GLFWwindow* _Window = glfwCreateWindow(_Width, _Hegth, "DDEngine", NULL, NULL);
+	GLFWwindow* _Window = glfwCreateWindow(_Width, _Hegth, "ImpulseForceEngine", NULL, NULL);
 	if (_Window == NULL)
 	{
 		cout << "Fail: create window" << endl;
@@ -103,7 +103,7 @@ int main()
 
 
 	
-	DDShell _ComponentEngine;
+	IFEShell _ComponentEngine;
 
 	//Свет. ПОКА НЕ ТРОГАТЬ!
 	MainShaderSystem _LightShader("LightVert.vert", "FragLight.frag");
