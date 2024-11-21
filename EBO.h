@@ -2,12 +2,14 @@
 #define EBO_CLASS_H
 
 #include<glad.h>
+#include<vector>
+using namespace std;
 
 class EBO
 {
 public:
 	GLuint _ID;
-	EBO(GLuint* _Index, GLsizeiptr _Size);
+	EBO(vector<GLuint>& _Index);
 
 	void Bind();
 	void UnBind();

@@ -1,10 +1,10 @@
 #include"EBO.h"
 
-EBO::EBO(GLuint* _Indices, GLsizeiptr _Size)
+EBO::EBO(vector<GLuint>& _Index)
 {
 	glGenBuffers(1, &_ID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _Size, _Indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _Index.size() * sizeof(GLuint), _Index.data(), GL_STATIC_DRAW);
 }
 
 void EBO::Bind()

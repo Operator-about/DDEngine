@@ -20,6 +20,9 @@ public:
 
 	void Online();
 	void Offline();
+
+
+	
 };
 
 #endif

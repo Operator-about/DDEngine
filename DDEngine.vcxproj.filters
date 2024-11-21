@@ -39,12 +39,24 @@
     <ClCompile Include="VBOSystem.cpp">
       <Filter>Файлы ресурсов\CppClass</Filter>
     </ClCompile>
+    <ClCompile Include="CameraDDSystem.cpp">
+      <Filter>Файлы ресурсов\CppClass</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshSystem.cpp">
+      <Filter>Файлы ресурсов\CppClass</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="VertShader.vert">
       <Filter>Файлы ресурсов\Shader</Filter>
     </None>
     <None Include="FragShader.frag">
+      <Filter>Файлы ресурсов\Shader</Filter>
+    </None>
+    <None Include="LightVert.vert">
+      <Filter>Файлы ресурсов\Shader</Filter>
+    </None>
+    <None Include="FragLight.frag">
       <Filter>Файлы ресурсов\Shader</Filter>
     </None>
   </ItemGroup>
@@ -62,6 +74,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="DDShell.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshDD.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

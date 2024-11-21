@@ -3,11 +3,19 @@
 #include<glad.h>
 #include<string>
 #include<thread>
+#include<glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
+#include<glm/gtc/type_ptr.hpp>
+
+
 #include"VBO.h"
 #include"EBO.h"
 #include"VAO.h"
 #include"ShaderSystemDDEngine.h"
+
+
 using namespace std;
+using namespace glm;
 
 class DDShell
 {
@@ -26,27 +34,32 @@ public:
 		glfwDestroyWindow(_Window);
 		glfwTerminate();
 	}
-	void LinkVBOVAOEBOAttribute(VBO _VBOLocal, VAO _VAOLocal, EBO _EBOLocal, GLfloat _Vert[], GLuint _Index[])
+	
+	void BindLightSystem(MainShaderSystem _Shader, MainShaderSystem _LightShader) 
 	{
 		gladLoadGL();
-
-		_VAOLocal.LinkAttrib(_VBOLocal, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
-		_VAOLocal.LinkAttrib(_VBOLocal, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-		_VBOLocal.UnBind();
-		_DebugInfoText = "Status VBO: UnBind!";
-		DebugTextOutput();
-		_VAOLocal.UnBind();
-		_DebugInfoText = "Status VAO: UnBind!";
-		DebugTextOutput();
-		_EBOLocal.UnBind();
-		_DebugInfoText = "Status EBO: UnBind!";
-		DebugTextOutput();
-
-		_DebugInfoText = "Status Link: online!";
-		DebugTextOutput();
+		
+		
 
 
+		vec4 _LightColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
+
+		vec3 _LightPos = vec3(0.5f, 0.5f, 0.5f);
+		mat4 _LightModel = mat4(1.0f);
+		_LightModel = translate(_LightModel, _LightPos);
+
+		vec3 _PyramidPos = vec3(0.0f, 0.0f, 0.0f);
+		mat4 _PyramidModel = mat4(1.0f);
+		_PyramidModel = translate(_PyramidModel, _PyramidPos);
+
+		_LightShader.Online();
+		glUniformMatrix4fv(glGetUniformLocation(_LightShader._ID, "model"), 1, GL_FALSE, value_ptr(_LightModel));
+		glUniform4f(glGetUniformLocation(_LightShader._ID, "LightColor"), _LightColor.x, _LightColor.y, _LightColor.z, _LightColor.w);
+		_Shader.Online();
+		glUniformMatrix4fv(glGetUniformLocation(_Shader._ID, "model"), 1, GL_FALSE, value_ptr(_PyramidModel));
+		glUniform4f(glGetUniformLocation(_Shader._ID, "LightColor"), _LightColor.x, _LightColor.y, _LightColor.z, _LightColor.w);
+		glUniform3f(glGetUniformLocation(_Shader._ID, "LightPos"), _LightColor.x, _LightColor.y, _LightColor.z);
 	}
 	tuple<VBO, VAO, EBO, MainShaderSystem> ActivAndBindSystem(VBO _VBO, VAO _VAO, EBO _EBO, MainShaderSystem _Shader, bool _VBOStatus, bool _VAOStatus, bool _EBOStatus, bool _ShaderStatus, bool _OutMode)
 	{
@@ -99,35 +112,16 @@ public:
 
 		return _All;
 	}
-	void ShutdownSystemComponent(VBO _VBO, VAO _VAO, EBO _EBO, MainShaderSystem _Shader, bool _VBOStatus, bool _VAOStatus, bool _EBOStatus, bool _ShaderStatus)
+	void ShutdownSystemComponent(MainShaderSystem _Shader)
 	{
 		gladLoadGL();
-		if (_VBOStatus == true)
-		{
-			_VBO.Offline();
-			_DebugInfoText = "Deactivet: VBO status: done and good";
-			DebugTextOutput();
-		}
-		if (_VAOStatus == true)
-		{
-			_VAO.Offline();
-			_DebugInfoText = "Deactivet: VAO status: done and good";
-			DebugTextOutput();
-		}
-		if (_EBOStatus == true)
-		{
-			_EBO.Offline();
-			_DebugInfoText = "Deactivet: EBO status: done and good";
-			DebugTextOutput();
+		
+	
+		_Shader.Offline();
+		_DebugInfoText = "Deactivet: Shader status: done and good";
+		DebugTextOutput();
 
-		}
-		if (_ShaderStatus == true)
-		{
-			_Shader.Offline();
-			_DebugInfoText = "Deactivet: Shader status: done and good";
-			DebugTextOutput();
-
-		}
+	
 		_DebugInfoText = "Status Bind: offline!";
 	}
 
@@ -135,7 +129,7 @@ public:
 	{
 		gladLoadGL();
 		glClearColor(R, G, B, A);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 	void DebugTextOutput()
 	{

@@ -41,17 +41,20 @@ MainShaderSystem::MainShaderSystem(const char* _VertFile, const char* _FragFile)
 	//Компиляция шейдеров
 	glCompileShader(_VertexShader); 
 
+
 	//Добавление фрагментого шейдера
 	GLuint _FragShader = glCreateShader(GL_FRAGMENT_SHADER); 
 	//добавление фрагментова шейдера к Фрагменто Шейдер Объекту
 	glShaderSource(_FragShader, 1, &_FragSource, NULL);
 	//Компиляция шейдеров
-	glCompileShader(_FragShader); 
+	glCompileShader(_FragShader);
+
 	 
 	_ID = glCreateProgram(); 
 	glAttachShader(_ID, _VertexShader); 
 	glAttachShader(_ID, _FragShader); 
 	glLinkProgram(_ID); 
+
 
 	glDeleteShader(_VertexShader); 
 	glDeleteShader(_FragShader); 
@@ -67,3 +70,4 @@ void MainShaderSystem::Offline()
 {
 	glDeleteProgram(_ID);
 }
+

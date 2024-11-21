@@ -104,13 +104,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\stb;$(SolutionDir)\libary\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\libary\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -121,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\stb;$(SolutionDir)\libary\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,23 +131,30 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\libary\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraDDSystem.cpp" />
     <ClCompile Include="DDEngine.cpp" />
     <ClCompile Include="EBOSystem.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="MainShaderSystemDDEngine.cpp" />
+    <ClCompile Include="MeshSystem.cpp" />
     <ClCompile Include="VAOSystem.cpp" />
     <ClCompile Include="VBOSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FragLight.frag" />
     <None Include="FragShader.frag" />
+    <None Include="LightVert.vert" />
     <None Include="VertShader.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="DDShell.h" />
     <ClInclude Include="EBO.h" />
+    <ClInclude Include="MeshDD.h" />
     <ClInclude Include="ShaderSystemDDEngine.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="VBO.h" />

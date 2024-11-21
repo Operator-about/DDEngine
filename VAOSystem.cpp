@@ -5,7 +5,7 @@ VAO::VAO()
 	glGenVertexArrays(1, &_ID);
 }
 
-void VAO::LinkAttrib(VBO _VBO, GLuint _Layout, GLuint _Component, GLenum _Type, GLsizeiptr _Stride, void* _Offest)
+void VAO::LinkAttrib(VBO& _VBO, GLuint _Layout, GLuint _Component, GLenum _Type, GLsizeiptr _Stride, void* _Offest)
 {
 	_VBO.Bind();
 
