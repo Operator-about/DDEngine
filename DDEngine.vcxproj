@@ -77,10 +77,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\assimp\include;$(SolutionDir)\libary\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\libary\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -91,12 +94,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\assimp\include;$(SolutionDir)\libary\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\libary\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -105,13 +111,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\stb;$(SolutionDir)\libary\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\libary\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -123,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\stb;$(SolutionDir)\libary\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\libary\include\GLFW;$(SolutionDir)\libary\include\glad;$(SolutionDir)\libary\include\src;$(SolutionDir)\libary\include\KHR;$(SolutionDir)\libary\include\glm;$(SolutionDir)\libary\include\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,19 +137,17 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\libary\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CameraDDSystem.cpp" />
     <ClCompile Include="ImpulseForceEngine.cpp" />
-    <ClCompile Include="EBOSystem.cpp" />
     <ClCompile Include="glad.c" />
-    <ClCompile Include="MainShaderSystemDDEngine.cpp" />
-    <ClCompile Include="MeshSystem.cpp" />
-    <ClCompile Include="VAOSystem.cpp" />
-    <ClCompile Include="VBOSystem.cpp" />
+    <ClCompile Include="MainShaderSystemIFE.cpp" />
+    <ClCompile Include="MeshIFESystem.cpp" />
+    <ClCompile Include="ModelIFESystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FragLight.frag" />
@@ -154,11 +158,9 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="IFEShell.h" />
-    <ClInclude Include="EBO.h" />
-    <ClInclude Include="MeshDD.h" />
-    <ClInclude Include="ShaderSystemDDEngine.h" />
-    <ClInclude Include="VAO.h" />
-    <ClInclude Include="VBO.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="ShaderSystemIFE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

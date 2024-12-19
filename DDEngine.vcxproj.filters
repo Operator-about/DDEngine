@@ -27,59 +27,47 @@
     <ClCompile Include="glad.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="EBOSystem.cpp">
-      <Filter>Файлы ресурсов\CppClass</Filter>
-    </ClCompile>
-    <ClCompile Include="MainShaderSystemDDEngine.cpp">
-      <Filter>Файлы ресурсов\CppClass</Filter>
-    </ClCompile>
-    <ClCompile Include="VAOSystem.cpp">
-      <Filter>Файлы ресурсов\CppClass</Filter>
-    </ClCompile>
-    <ClCompile Include="VBOSystem.cpp">
-      <Filter>Файлы ресурсов\CppClass</Filter>
-    </ClCompile>
     <ClCompile Include="CameraDDSystem.cpp">
       <Filter>Файлы ресурсов\CppClass</Filter>
     </ClCompile>
-    <ClCompile Include="MeshSystem.cpp">
+    <ClCompile Include="MainShaderSystemIFE.cpp">
+      <Filter>Файлы ресурсов\CppClass</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshIFESystem.cpp">
+      <Filter>Файлы ресурсов\CppClass</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelIFESystem.cpp">
       <Filter>Файлы ресурсов\CppClass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="VertShader.vert">
+    <None Include="LightVert.vert">
       <Filter>Файлы ресурсов\Shader</Filter>
     </None>
     <None Include="FragShader.frag">
       <Filter>Файлы ресурсов\Shader</Filter>
     </None>
-    <None Include="LightVert.vert">
+    <None Include="FragLight.frag">
       <Filter>Файлы ресурсов\Shader</Filter>
     </None>
-    <None Include="FragLight.frag">
+    <None Include="VertShader.vert">
       <Filter>Файлы ресурсов\Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ShaderSystemDDEngine.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="VBO.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="EBO.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="VAO.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="IFEShell.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="MeshDD.h">
+    <ClInclude Include="ShaderSystemIFE.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

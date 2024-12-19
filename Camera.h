@@ -9,7 +9,7 @@
 #include<glm/gtx/rotate_vector.hpp>
 #include<glm/gtx/vector_angle.hpp>
 
-#include"ShaderSystemDDEngine.h"
+#include"ShaderSystemIFE.h"
 using namespace glm;
 
 
@@ -27,7 +27,7 @@ public:
 	int _WidthCamera;
 	int _HegthCamera;
 
-	float _Speed = 0.1f;
+	float _Speed = 10.1f;
 	float _Sent = 100.0f;
 
 	CameraSystem(int _Width, int _Hegth, vec3 _Position);

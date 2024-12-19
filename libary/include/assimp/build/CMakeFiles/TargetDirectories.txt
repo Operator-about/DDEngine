@@ -1,0 +1,13 @@
+D:/ImpulseForceEngine/libary/include/assimp/build/CMakeFiles/uninstall.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/CMakeFiles/UpdateAssimpLibsDebugSymbolsAndDLLs.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/CMakeFiles/INSTALL.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/CMakeFiles/ALL_BUILD.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/CMakeFiles/ZERO_CHECK.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/contrib/zlib/CMakeFiles/zlibstatic.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/contrib/zlib/CMakeFiles/INSTALL.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/contrib/zlib/CMakeFiles/ALL_BUILD.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/code/CMakeFiles/assimp.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/code/CMakeFiles/INSTALL.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/test/CMakeFiles/unit.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/test/CMakeFiles/INSTALL.dir
+D:/ImpulseForceEngine/libary/include/assimp/build/test/headercheck/CMakeFiles/INSTALL.dir
